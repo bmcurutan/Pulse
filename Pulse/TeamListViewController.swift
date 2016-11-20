@@ -22,6 +22,7 @@ class TeamListViewController: UIViewController {
         tableView.delegate = self
         
         subscribeToNotifications()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddButtonTap(_:)))
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -41,11 +42,7 @@ class TeamListViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func onBackButtonTap(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func onAddButtonTap(_ sender: UIButton) {
+    @objc fileprivate func onAddButtonTap(_ sender: UIButton) {
 		ABIShowPersonViewController(person: nil)
     }
     
