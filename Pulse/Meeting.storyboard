@@ -200,5 +200,37 @@
             </objects>
             <point key="canvasLocation" x="1196" y="-189"/>
         </scene>
+        <!--Meeting Details Selection View Controller-->
+        <scene sceneID="4fy-Yl-egA">
+            <objects>
+                <viewController storyboardIdentifier="MeetingDetailsSelectionViewController" id="WfY-bH-Mka" customClass="MeetingDetailsSelectionViewController" customModule="Pulse" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eai-Iw-Y8f"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Cn-6i-LRc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="irK-cs-kLi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CUM-HO-hLv">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CUM-HO-hLv" firstAttribute="leading" secondItem="irK-cs-kLi" secondAttribute="leading" id="JO5-iW-Of2"/>
+                            <constraint firstItem="CUM-HO-hLv" firstAttribute="top" secondItem="eai-Iw-Y8f" secondAttribute="bottom" id="V1m-KZ-cAd"/>
+                            <constraint firstItem="2Cn-6i-LRc" firstAttribute="top" secondItem="CUM-HO-hLv" secondAttribute="bottom" id="fVB-X0-PYZ"/>
+                            <constraint firstAttribute="trailing" secondItem="CUM-HO-hLv" secondAttribute="trailing" id="qa9-RN-Olg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="CUM-HO-hLv" id="zf2-ig-l86"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XF4-Kd-fEj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1898" y="-143"/>
+        </scene>
     </scenes>
 </document>
