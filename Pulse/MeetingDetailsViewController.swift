@@ -267,7 +267,14 @@ extension MeetingDetailsViewController: UITableViewDataSource {
             // The actual cards
         } else {
             switch selectedCards[indexPath.row].id! {
-            // TODO
+            case "d":
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ContainerCell", for: indexPath)
+                let storyboard = UIStoryboard(name: "Todo", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "TodoVC") as! TodoViewController
+                vc.meeting
+                self.addChildViewController(vc)
+                cell.contentView.addSubview(vc.view)
+                return cell
                 
             default:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ContainerCell", for: indexPath)
