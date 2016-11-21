@@ -270,10 +270,11 @@ extension MeetingDetailsViewController: UITableViewDataSource {
             case "d":
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ContainerCell", for: indexPath)
                 let storyboard = UIStoryboard(name: "Todo", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "TodoVC") as! TodoViewController
-                vc.meeting
-                self.addChildViewController(vc)
-                cell.contentView.addSubview(vc.view)
+                let viewController = storyboard.instantiateViewController(withIdentifier: "TodoVC") as! TodoViewController
+                viewController.currentMeeting = meeting
+                viewController.viewTypes = .meeting
+                self.addChildViewController(viewController)
+                cell.contentView.addSubview(viewController.view)
                 return cell
                 
             default:
@@ -299,14 +300,18 @@ extension MeetingDetailsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
+        let defaultHeight: CGFloat = 44
         guard indexPath.row < selectedCards.count else {
-            return 44
+            return defaultHeight
         }
         
         switch selectedCards[indexPath.row].id! {
-        // TODO
+        case "d":
+            let storyboard = UIStoryboard(name: "Todo", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "TodoVC") as! TodoViewController
+            return viewController.heightForView()
         default:
-            return 44
+            return defaultHeight
         }
         
     }
