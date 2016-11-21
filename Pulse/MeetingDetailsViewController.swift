@@ -43,14 +43,11 @@ class MeetingDetailsViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(onSaveButton(_:)))
 
-        // TODO
-        tableView.isHidden = true
         tableView.dataSource = self
         tableView.delegate = self
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        tableView.register(UINib(nibName: "CardCellNib", bundle: nil), forCellReuseIdentifier: "CardCell")
         tableView.register(UINib(nibName: "MessageCellNib", bundle: nil), forCellReuseIdentifier: "MessageCell")
         
         alertController = UIAlertController(title: "Error", message: "Error", preferredStyle: .alert)
@@ -61,7 +58,7 @@ class MeetingDetailsViewController: UIViewController {
             personTextField.text = meeting.personId
             
             if let selectedCardsString = meeting.selectedCards {
-                self.selectedCardsString = selectedCardsString 
+                self.selectedCardsString = selectedCardsString
                 for c in (meeting.selectedCards?.characters)! {
                     switch c {
                     case "d":
@@ -272,21 +269,7 @@ extension MeetingDetailsViewController: UITableViewDataSource {
             // The actual cards
         } else {
             switch selectedCards[indexPath.row].id! {
-            case "m":
-                let cell = tableView.dequeueReusableCell(withIdentifier: "ContainerCell", for: indexPath)
-                let storyboard = UIStoryboard(name: "Meeting", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "MeetingsViewController")
-                self.addChildViewController(vc)
-                cell.contentView.addSubview(vc.view)
-                return cell
-                
-            case "t":
-                let cell = tableView.dequeueReusableCell(withIdentifier: "ContainerCell", for: indexPath)
-                let storyboard = UIStoryboard(name: "Team", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "TeamCollectionVC")
-                self.addChildViewController(vc)
-                cell.contentView.addSubview(vc.view)
-                return cell
+            // TODO
                 
             default:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ContainerCell", for: indexPath)
@@ -301,6 +284,7 @@ extension MeetingDetailsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("TESTTEST\(selectedCards.count + 1)")
         return selectedCards.count + 1
     }
 }
@@ -316,10 +300,7 @@ extension MeetingDetailsViewController: UITableViewDelegate {
         }
         
         switch selectedCards[indexPath.row].id! {
-        case "m":
-            return 44*4 // TODO
-        case "t":
-            return 240
+        // TODO
         default:
             return 44
         }
