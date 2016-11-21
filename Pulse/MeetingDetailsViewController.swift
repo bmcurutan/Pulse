@@ -137,46 +137,44 @@ class MeetingDetailsViewController: UIViewController {
                 }
                 
                 
-        // Survey
-        let post = PFObject(className: "Survey")
-        post["surveyDesc1"] = "happiness"
-        post["surveyValueId1"] = (self.survey1Low.isOn ? 0 : (self.survey1High.isOn ? 2 : 1))
-        post["surveyDesc2"] = "engagement"
-        post["surveyValueId2"] = (self.survey2Low.isOn ? 0 : (self.survey2High.isOn ? 2 : 1))
-        post["surveyDesc3"] = "workload"
-        post["surveyValueId3"] = (self.survey3Low.isOn ? 0 : (self.survey3High.isOn ? 2 : 1))
-        post.saveInBackground(block: { (success: Bool, error: Error?) in
-            
-            if success {
-                ParseClient.sharedInstance().getCurrentPerson(completion: { (person: PFObject?, error: Error?) in
-                    if let person = person {
-                        let managerId = person.objectId
-                        let dictionary: [String: Any] = [
-                            "personId": personId, // TODO
-                            "managerId": managerId,
-                            "surveyId": post.objectId!,
-                            "meetingDate": Date()
-                        ]
-                        self.meeting = Meeting(dictionary: dictionary)
-                        print("survey saved successfully")
-                        
-                        Meeting.saveMeetingToParse(meeting: self.meeting) { (success: Bool, error: Error?) in
-                            if success {
-                                print("Successfully saved meeting")
-                                let _ = self.navigationController?.popViewController(animated: true)
-                            } else {
-                                self.alertController?.message = "Meeting was unable to be saved"
-                                self.present(self.alertController!, animated: true)
+                // Survey
+                let post = PFObject(className: "Survey")
+                post["surveyDesc1"] = "happiness"
+                post["surveyValueId1"] = (self.survey1Low.isOn ? 0 : (self.survey1High.isOn ? 2 : 1))
+                post["surveyDesc2"] = "engagement"
+                post["surveyValueId2"] = (self.survey2Low.isOn ? 0 : (self.survey2High.isOn ? 2 : 1))
+                post["surveyDesc3"] = "workload"
+                post["surveyValueId3"] = (self.survey3Low.isOn ? 0 : (self.survey3High.isOn ? 2 : 1))
+                post.saveInBackground(block: { (success: Bool, error: Error?) in
+                    
+                    if success {
+                        ParseClient.sharedInstance().getCurrentPerson(completion: { (person: PFObject?, error: Error?) in
+                            if let person = person {
+                                let managerId = person.objectId
+                                let dictionary: [String: Any] = [
+                                    "personId": personId, // TODO
+                                    "managerId": managerId,
+                                    "surveyId": post.objectId!,
+                                    "meetingDate": Date()
+                                ]
+                                self.meeting = Meeting(dictionary: dictionary)
+                                print("survey saved successfully")
+                                
+                                Meeting.saveMeetingToParse(meeting: self.meeting) { (success: Bool, error: Error?) in
+                                    if success {
+                                        print("Successfully saved meeting")
+                                        let _ = self.navigationController?.popViewController(animated: true)
+                                    } else {
+                                        self.alertController?.message = "Meeting was unable to be saved"
+                                        self.present(self.alertController!, animated: true)
+                                    }
+                                }
                             }
-                        }
+                        })
                     }
                 })
             }
-        })
-        
-            }
         }
-        
     }
     
     // MARK: - IBAction
@@ -284,7 +282,6 @@ extension MeetingDetailsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("TESTTEST\(selectedCards.count + 1)")
         return selectedCards.count + 1
     }
 }
@@ -322,23 +319,31 @@ extension MeetingDetailsViewController: UITableViewDelegate {
 extension MeetingDetailsViewController: MeetingDetailsSelectionViewControllerDelegate {
     
     func meetingDetailsSelectionViewController(meetingDetailsSelectionViewController: MeetingDetailsSelectionViewController, didAddCard card: Card) {
-        print("ADDADD")
-        /*let query = PFQuery(className: "Meeting")
-        query.whereKey("objectId", equalTo: meeting.objectId)
+        let query = PFQuery(className: "Meetings")
+        if let meetingId = meeting.objectId {
+            query.whereKey("objectId", equalTo: meetingId)
+        }
+        
         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
             if let posts = posts,
                 let id = card.id,
                 let selectedCardsString = self.selectedCardsString {
-                let post = posts[0]
-                post["userId"] = userId
-                self.selectedCardsString = "\(id)\(selectedCardsString)"
-                post["selectedCards"] = self.selectedCardsString
-                post.saveInBackground { (success: Bool, error: Error?) in
-                    if success {
-                        print("successfully saved dashboard card")
-                    } else {
-                        print(error?.localizedDescription)
+                
+                if posts.count > 0 {
+                    let post = posts[0]
+                    self.selectedCardsString = "\(id)\(selectedCardsString)"
+                    post["selectedCards"] = selectedCardsString
+                    post.saveInBackground { (success: Bool, error: Error?) in
+                        if success {
+                            print("successfully saved meeting card")
+                        } else {
+                            print(error?.localizedDescription)
+                        }
                     }
+                } else {
+                    let post = PFObject(className: "Meetings")
+                    post["selectedCards"] = selectedCardsString
+                    post.saveInBackground()
                 }
             } else {
                 print(error?.localizedDescription)
@@ -348,24 +353,28 @@ extension MeetingDetailsViewController: MeetingDetailsSelectionViewControllerDel
         // Insert new card at the top of the table view
         selectedCards.insert(card, at: 0)
         tableView.reloadData()
-        tableView.reloadRows(at: tableView.indexPathsForVisibleRows!, with: .none)*/
+        tableView.reloadRows(at: tableView.indexPathsForVisibleRows!, with: .none)
     }
     
     func meetingDetailsSelectionViewController(meetingDetailsSelectionViewController: MeetingDetailsSelectionViewController, didRemoveCard card: Card) {
-        print("REMOVEREMOVE")
-        /*let query = PFQuery(className: "Dashboard")
-        let userId = (PFUser.current()?.objectId)! as String
-        query.whereKey("userId", equalTo: userId)
+        
+        let query = PFQuery(className: "Meetings")
+        if let meetingId = meeting.objectId {
+            query.whereKey("objectId", equalTo: meetingId)
+        }
+        
         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
             if let posts = posts,
                 let id = card.id,
                 let selectedCardsString = self.selectedCardsString {
-                let post = posts[0]
-                post["userId"] = userId
-                self.selectedCardsString = selectedCardsString.replacingOccurrences(of: id, with: "")
-                post["selectedCards"] = self.selectedCardsString
-                post.saveInBackground { (success: Bool, error: Error?) in
-                    print("successfully removed dashboard card")
+                
+                if posts.count > 0 {
+                    let post = posts[0]
+                    self.selectedCardsString = selectedCardsString.replacingOccurrences(of: id, with: "")
+                    post["selectedCards"] = selectedCardsString
+                    post.saveInBackground { (success: Bool, error: Error?) in
+                        print("successfully removed dashboard card")
+                    }
                 }
             } else {
                 print(error?.localizedDescription)
@@ -379,6 +388,6 @@ extension MeetingDetailsViewController: MeetingDetailsSelectionViewControllerDel
             }
         }
         tableView.reloadData()
-        tableView.reloadRows(at: tableView.indexPathsForVisibleRows!, with: .none)*/
+        tableView.reloadRows(at: tableView.indexPathsForVisibleRows!, with: .none)
     }
 }
