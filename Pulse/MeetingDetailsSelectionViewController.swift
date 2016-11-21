@@ -6,14 +6,6 @@
 //  Copyright © 2016 ABI. All rights reserved.
 //
 
-//
-//  DashboardSelectionViewController.swift
-//  Pulse
-//
-//  Created by Bianca Curutan on 11/9/16.
-//  Copyright © 2016 ABI. All rights reserved.
-//
-
 import UIKit
 
 protocol MeetingDetailsSelectionViewControllerDelegate: class {
@@ -25,7 +17,7 @@ class MeetingDetailsSelectionViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    weak var delegate: DashboardSelectionViewControllerDelegate?
+    weak var delegate: MeetingDetailsSelectionViewControllerDelegate?
     var selectedCards: [Card] = []
     
     var alertController = UIAlertController(title: "Error", message: "Error", preferredStyle: .alert)
@@ -46,9 +38,9 @@ class MeetingDetailsSelectionViewController: UIViewController {
 
 // MARK: - UITableViewDataSource
 
-extension DashboardSelectionViewController: UITableViewDataSource {
+extension MeetingDetailsSelectionViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let card = Constants.dashboardCards[indexPath.row]
+        let card = Constants.meetingCards[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SelectionCell", for: indexPath)
         cell.textLabel?.text = card.name
@@ -63,31 +55,31 @@ extension DashboardSelectionViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Constants.dashboardCards.count
+        return Constants.meetingCards.count
     }
 }
 
 // MARK: - UITableViewDelegate
 
-extension DashboardSelectionViewController: UITableViewDelegate {
+extension MeetingDetailsSelectionViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Deselect row appearance after it has been selected
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let card = Constants.dashboardCards[indexPath.row]
+        let card = Constants.meetingCards[indexPath.row]
         
         if selectedCards.contains(card) {
-            for (index, dashboardCard) in selectedCards.enumerated() {
+            for (index, meetingCard) in selectedCards.enumerated() {
                 // Double check to avoid index out of bounds
-                if dashboardCard.id == card.id && 0 <= index && selectedCards.count > index {
+                if meetingCard.id == card.id && 0 <= index && selectedCards.count > index {
                     selectedCards.remove(at: index)
                 }
             }
-            delegate?.dashboardSelectionViewController(dashboardSelectionViewController: self, didRemoveCard: card)
+            delegate?.meetingDetailsSelectionViewController(meetingDetailsSelectionViewController: self, didRemoveCard: card)
         } else {
             selectedCards.append(card)
-            delegate?.dashboardSelectionViewController(dashboardSelectionViewController: self, didAddCard: card)
+            delegate?.meetingDetailsSelectionViewController(meetingDetailsSelectionViewController: self, didAddCard: card)
         }
         
         tableView.reloadData()
