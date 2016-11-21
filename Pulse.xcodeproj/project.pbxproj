@@ -47,6 +47,7 @@
 		5E0FFC9EBCADD96162F32770 /* Pods_Pulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF11F3E6D9CFC2CE9908CF3B /* Pods_Pulse.framework */; };
 		672A891F1DDA9B6400935085 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672A891E1DDA9B6400935085 /* Survey.swift */; };
 		676CEF421DE26493000FA406 /* Meeting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 676CEF411DE26493000FA406 /* Meeting.storyboard */; };
+		676CEF441DE26FC4000FA406 /* MeetingDetailsSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676CEF431DE26FC4000FA406 /* MeetingDetailsSelectionViewController.swift */; };
 		678802921DD41540001338A8 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678802901DD41540001338A8 /* DashboardViewController.swift */; };
 		678802A31DD4469C001338A8 /* DashboardSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678802A11DD4469C001338A8 /* DashboardSelectionViewController.swift */; };
 		678802A81DD44A4C001338A8 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678802A71DD44A4C001338A8 /* Card.swift */; };
@@ -106,6 +107,7 @@
 		4621C0292163DDA112D8B768 /* Pods-Pulse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pulse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pulse/Pods-Pulse.debug.xcconfig"; sourceTree = "<group>"; };
 		672A891E1DDA9B6400935085 /* Survey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
 		676CEF411DE26493000FA406 /* Meeting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Meeting.storyboard; sourceTree = "<group>"; };
+		676CEF431DE26FC4000FA406 /* MeetingDetailsSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingDetailsSelectionViewController.swift; sourceTree = "<group>"; };
 		678802901DD41540001338A8 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		678802A11DD4469C001338A8 /* DashboardSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardSelectionViewController.swift; sourceTree = "<group>"; };
 		678802A71DD44A4C001338A8 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				678802A11DD4469C001338A8 /* DashboardSelectionViewController.swift */,
 				67BCA14F1DD6E66100E7EE74 /* MeetingsViewController.swift */,
 				67D8D6591DD5AF1500B6DE19 /* MeetingDetailsViewController.swift */,
+				676CEF431DE26FC4000FA406 /* MeetingDetailsSelectionViewController.swift */,
 				437DE0591DD9371800B08988 /* TeamCollectionViewController.swift */,
 				437DE05B1DD93E9D00B08988 /* TeamListViewController.swift */,
 				43EC9BBD1DE13870006C8703 /* TodoViewController.swift */,
@@ -472,6 +475,7 @@
 				67D8D64A1DD56D9800B6DE19 /* Constants.swift in Sources */,
 				431804AF1DD7F2CC00B279C6 /* Person.swift in Sources */,
 				437DE05E1DD9433E00B08988 /* TeamViewDataSource.swift in Sources */,
+				676CEF441DE26FC4000FA406 /* MeetingDetailsSelectionViewController.swift in Sources */,
 				437DE0641DD976F000B08988 /* ToDo.swift in Sources */,
 				431804A71DD6975500B279C6 /* Extensions.swift in Sources */,
 				437DE04B1DD90F0100B08988 /* TeamCollectionCell.swift in Sources */,
