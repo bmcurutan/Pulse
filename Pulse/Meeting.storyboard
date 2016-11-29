@@ -47,7 +47,7 @@
                                 <rect key="frame" x="0.0" y="72" width="359" height="595"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" id="EM7-Bg-eap" customClass="MessageCell" customModule="Pulse" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCardCell" id="EM7-Bg-eap" customClass="CustomCardCell" customModule="Pulse" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="359" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EM7-Bg-eap" id="qe1-1M-aTV">
@@ -101,7 +101,7 @@
                                 <rect key="frame" x="8" y="8" width="359" height="651"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" id="A7y-Cu-fdb" customClass="MessageCell" customModule="Pulse" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCardCell" id="A7y-Cu-fdb" customClass="CustomCardCell" customModule="Pulse" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="359" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A7y-Cu-fdb" id="ASq-hW-1Cb">
@@ -412,7 +412,7 @@
                                     <constraint firstAttribute="height" constant="330" id="t2C-eJ-QBv"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" id="tD8-6X-KlU" customClass="MessageCell" customModule="Pulse" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCardCell" id="tD8-6X-KlU" customClass="CustomCardCell" customModule="Pulse" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tD8-6X-KlU" id="RQj-EZ-Fc7">

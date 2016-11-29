@@ -32,6 +32,7 @@ class LoginViewController: UIViewController {
         passwordTextField.delegate = self
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(onCancelButtonTap(_:)))
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.pulseAccentColor()
     }
     
     // MARK: - Actions

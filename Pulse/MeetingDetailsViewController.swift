@@ -42,7 +42,7 @@ class MeetingDetailsViewController: UIViewController {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
+        tableView.register(UINib(nibName: "CustomCardCell", bundle: nil), forCellReuseIdentifier: "CustomCardCell")
         
         alertController = UIAlertController(title: "", message: "Error", preferredStyle: .alert)
         alertController?.addAction(UIAlertAction(title: "OK", style: .cancel))
@@ -103,7 +103,7 @@ extension MeetingDetailsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == selectedCards.count {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCardCell", for: indexPath) as! CustomCardCell
             cell.layer.cornerRadius = 5
             if isExistingMeeting {
                 cell.message = "Tap here to manage cards"
@@ -176,7 +176,7 @@ extension MeetingDetailsViewController: UITableViewDataSource {
                 return cell
                 
             default: // This shouldn't actually be reached
-                let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCardCell", for: indexPath) as! CustomCardCell
                 cell.message = selectedCards[indexPath.section].name
                 return cell
             }

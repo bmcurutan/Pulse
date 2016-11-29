@@ -25,7 +25,7 @@
                                 <rect key="frame" x="8" y="72" width="359" height="587"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" id="X4Y-gE-i3A" customClass="MessageCell" customModule="Pulse" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCardCell" id="X4Y-gE-i3A" customClass="CustomCardCell" customModule="Pulse" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="359" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X4Y-gE-i3A" id="Qcn-7V-pVZ">
@@ -164,7 +164,7 @@
             <objects>
                 <navigationController storyboardIdentifier="DashboardNavVC" automaticallyAdjustsScrollViewInsets="NO" id="NTb-5u-QEm" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="44a-J9-c93">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="44a-J9-c93">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

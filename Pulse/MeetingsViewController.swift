@@ -38,7 +38,7 @@ class MeetingsViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
+        tableView.register(UINib(nibName: "CustomCardCell", bundle: nil), forCellReuseIdentifier: "CustomCardCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -140,7 +140,7 @@ class MeetingsViewController: UIViewController {
 
 extension MeetingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCardCell", for: indexPath) as! CustomCardCell
         if 0 < meetings.count {
             
             let formatter = DateFormatter()

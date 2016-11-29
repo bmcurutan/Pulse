@@ -11,17 +11,12 @@ import UIKit
 class UIExtensions: NSObject {
     /* UI Notes:
      * Corner radius: 5.0
-     * Background color for UITableView: Group Table View Background Color
+     *
      */
     
     /* TODO - other things to address:
-     * Card appearance - TODO Bianca
-     * Colors - TODO Bianca
-     * Font size/attributes/type
-     * Constraints (spacing)
-     * Button, textfield, etc. appearance (corner radius, etc.)
+     * Font size/attributes/type -- headers, subheaders, primary, button text, cell text, etc
      * Assets (need all buttons, default pics, etc. to look the same) - TODO Ita
-     * Headers
      */
     
     class func gradientBackgroundFor(view: UIView) {
@@ -56,6 +51,12 @@ class UIExtensions: NSObject {
 
 extension UIColor {
     
+    /* Other color notes:
+     * Black: Used for primary text on light backgrounds
+     * White: Used for primary text on dark backgrounds
+     */
+    
+    // Used in background gradient with black
     class func pulseBackgroundColor() -> UIColor {
         return UIExtensions.uiColorWith(hex: "#303F9F") // Darker indigo
     }
@@ -64,14 +65,17 @@ extension UIColor {
         return UIExtensions.uiColorWith(hex: "#303F9F") // Darker indigo
     }
     
+    // Used for buttons
     class func pulsePrimaryColor() -> UIColor {
         return UIExtensions.uiColorWith(hex: "#3F51B5") // Indigo
     }
     
+    // Used for secondary text
     class func pulseLightPrimaryColor() -> UIColor {
         return UIExtensions.uiColorWith(hex: "#C5CAE9") // Light indigo
     }
 
+    // Used for text links and clear background icons
     class func pulseAccentColor() -> UIColor {
         return UIExtensions.uiColorWith(hex: "#536DFE") // Bright indigo
     }

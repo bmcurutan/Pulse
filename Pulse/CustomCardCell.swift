@@ -1,5 +1,5 @@
 //
-//  MessageCell.swift
+//  CustomCardCell.swift
 //  Pulse
 //
 //  Created by Bianca Curutan on 11/10/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MessageCell: UITableViewCell {
+class CustomCardCell: UITableViewCell {
     
     @IBOutlet weak var messageLabel: UILabel!
     
