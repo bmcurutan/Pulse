@@ -16,6 +16,7 @@ class MeetingsViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var meetingsLabel: UILabel!
     
+    @IBOutlet weak var tableViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableViewTrailingConstraint: NSLayoutConstraint!
     
     var meetings: [Meeting] = []
@@ -27,16 +28,24 @@ class MeetingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.title = "Meetings"
 
+        if expanded {
+            UIExtensions.gradientBackgroundFor(view: view)
+            navigationController?.navigationBar.barStyle = .blackTranslucent
+            navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+            navigationController?.navigationBar.shadowImage = UIImage()
+        }
+        
         selectAllButton.isHidden = expanded
         addButton.isHidden = expanded
         meetingsLabel.isHidden = expanded
-        tableViewTrailingConstraint.constant = expanded ? 0 : 16
+        tableViewTrailingConstraint.constant = expanded ? 8 : 0
+        tableViewTrailingConstraint.constant = expanded ? 8 : 16
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.layer.cornerRadius = 5
         
         tableView.register(UINib(nibName: "CustomCardCell", bundle: nil), forCellReuseIdentifier: "CustomCardCell")
     }

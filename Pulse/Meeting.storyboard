@@ -44,7 +44,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ndN-v1-9TM">
-                                <rect key="frame" x="0.0" y="72" width="359" height="595"/>
+                                <rect key="frame" x="8" y="80" width="359" height="579"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCardCell" id="EM7-Bg-eap" customClass="CustomCardCell" customModule="Pulse" customModuleProvider="target">
@@ -60,16 +60,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ndN-v1-9TM" firstAttribute="top" secondItem="Bsv-qF-A4D" secondAttribute="bottom" id="5Lq-Nf-sTw"/>
-                            <constraint firstItem="ndN-v1-9TM" firstAttribute="leading" secondItem="6OV-X0-hbB" secondAttribute="leading" id="8Vp-xC-jlb"/>
+                            <constraint firstItem="ndN-v1-9TM" firstAttribute="top" secondItem="Bsv-qF-A4D" secondAttribute="bottom" constant="8" id="5Lq-Nf-sTw"/>
+                            <constraint firstItem="ndN-v1-9TM" firstAttribute="leading" secondItem="6OV-X0-hbB" secondAttribute="leading" constant="8" id="8Vp-xC-jlb"/>
                             <constraint firstItem="lb5-MA-c6m" firstAttribute="top" secondItem="RXM-OU-A5o" secondAttribute="bottom" id="FJn-Dd-vsY"/>
                             <constraint firstItem="Bsv-qF-A4D" firstAttribute="leading" secondItem="6OV-X0-hbB" secondAttribute="leading" constant="10" id="MKJ-Rj-0RP"/>
-                            <constraint firstItem="FIf-2c-DMt" firstAttribute="top" secondItem="ndN-v1-9TM" secondAttribute="bottom" id="NeO-ie-AAp"/>
+                            <constraint firstItem="FIf-2c-DMt" firstAttribute="top" secondItem="ndN-v1-9TM" secondAttribute="bottom" constant="8" id="NeO-ie-AAp"/>
                             <constraint firstAttribute="trailing" secondItem="lb5-MA-c6m" secondAttribute="trailing" constant="24" id="Rwe-yu-Hnm"/>
                             <constraint firstItem="RXM-OU-A5o" firstAttribute="top" secondItem="jhk-YY-nrE" secondAttribute="bottom" constant="8" id="VIU-I9-IxM"/>
                             <constraint firstItem="Bsv-qF-A4D" firstAttribute="centerY" secondItem="lb5-MA-c6m" secondAttribute="centerY" id="g7s-dr-zUR"/>
                             <constraint firstItem="lb5-MA-c6m" firstAttribute="centerY" secondItem="Bsv-qF-A4D" secondAttribute="centerY" id="oZp-S2-7SP"/>
-                            <constraint firstAttribute="trailing" secondItem="ndN-v1-9TM" secondAttribute="trailing" constant="16" id="p3t-9S-9fJ"/>
+                            <constraint firstAttribute="trailing" secondItem="ndN-v1-9TM" secondAttribute="trailing" constant="8" id="p3t-9S-9fJ"/>
                             <constraint firstItem="RXM-OU-A5o" firstAttribute="leading" secondItem="6OV-X0-hbB" secondAttribute="leading" constant="8" id="z2o-MX-AHs"/>
                         </constraints>
                     </view>
@@ -78,6 +78,7 @@
                         <outlet property="meetingsLabel" destination="RXM-OU-A5o" id="yhk-bH-D83"/>
                         <outlet property="selectAllButton" destination="Bsv-qF-A4D" id="e3o-aH-M0g"/>
                         <outlet property="tableView" destination="ndN-v1-9TM" id="TFN-bt-SOI"/>
+                        <outlet property="tableViewLeadingConstraint" destination="8Vp-xC-jlb" id="ARA-jC-gOI"/>
                         <outlet property="tableViewTrailingConstraint" destination="p3t-9S-9fJ" id="hQ8-64-Ch2"/>
                     </connections>
                 </viewController>
