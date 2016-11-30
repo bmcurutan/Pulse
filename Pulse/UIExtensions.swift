@@ -11,7 +11,8 @@ import UIKit
 class UIExtensions: NSObject {
     /* UI Notes:
      * Corner radius: 5.0
-     *
+     * Header font: Helvetica Neue thin 36pt
+     * Subheader font: Helvetica Neue thin
      */
     
     /* TODO - other things to address:
