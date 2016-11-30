@@ -158,6 +158,7 @@ extension MeetingDetailsViewController: UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "NotesContainerCell", for: indexPath)
                 cell.layer.cornerRadius = 5
                 cell.selectionStyle = .none
+                cell.backgroundColor = UIColor.clear
                 
                 if cell.contentView.subviews == [] {
                     let storyboard = UIStoryboard(name: "Notes", bundle: nil)
