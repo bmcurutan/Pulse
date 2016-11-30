@@ -142,7 +142,7 @@
             </objects>
             <point key="canvasLocation" x="313" y="363"/>
         </scene>
-        <!--Settings-->
+        <!--Settings View Controller-->
         <scene sceneID="Zpi-68-xCP">
             <objects>
                 <viewController storyboardIdentifier="SettingsVC" id="fon-ue-x0Q" customClass="SettingsViewController" customModule="Pulse" customModuleProvider="target" sceneMemberID="viewController">
@@ -158,13 +158,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="131"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuc-eW-C0X">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuc-eW-C0X">
                                             <rect key="frame" x="122" y="38" width="241" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dce-Bd-Fpo">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dce-Bd-Fpo">
                                             <rect key="frame" x="122" y="73.5" width="241" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
@@ -223,7 +223,7 @@
                             <outlet property="delegate" destination="fon-ue-x0Q" id="HdI-T1-DlW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="8aJ-Re-iFN"/>
+                    <navigationItem key="navigationItem" id="8aJ-Re-iFN"/>
                     <connections>
                         <outlet property="settingsTableView" destination="5EQ-6X-Kma" id="Zqw-Go-9s4"/>
                         <segue destination="xOd-iJ-9ak" kind="show" identifier="updateProfileSegue" id="Eej-PP-ARE"/>

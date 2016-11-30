@@ -11,22 +11,22 @@ import Foundation
 class Constants: NSObject {
 
     static let dashboardCards: [Card] = Card.cardsWithArray(dictionaries: [
-        ["id" : "m", "name": "Meetings", "card_type": "meetings", "page_type": "dashboard"],
-        ["id" : "g" , "name": "Pulse Graph", "card_type": "pulse_graph", "page_type": "dashboard"],
-        ["id" : "t", "name": "Team Members", "card_type": "team", "page_type": "dashboard"],
-        ["id" : "d", "name": "To Dos", "card_type": "to_do", "page_type": "dashboard"]
+        ["id" : "m", "name": "Recent Meetings", "card_type": "meetings", "page_type": "dashboard"],
+        ["id" : "g", "name": "Company Pulse", "card_type": "pulse_graph", "page_type": "dashboard"],
+        ["id" : "t", "name": "My Team", "card_type": "team", "page_type": "dashboard"],
+        ["id" : "d", "name": "Follow Up Items", "card_type": "to_do", "page_type": "dashboard"]
     ])
     
     static let meetingCards: [Card] = Card.cardsWithArray(dictionaries: [
-        ["id" : "s", "name": "Survey", "card_type": "survey", "page_type": "meeting"],
-        ["id" : "d", "name": "To Dos", "card_type": "to_do", "page_type": "meeting"],
+        ["id" : "s", "name": "Pulse Survey", "card_type": "survey", "page_type": "meeting"],
+        ["id" : "d", "name": "Follow Up Items", "card_type": "to_do", "page_type": "meeting"],
         ["id" : "n", "name": "Notes", "card_type": "notes", "page_type": "meeting"]
     ])
     
     static let personCards: [Card] = Card.cardsWithArray(dictionaries: [
         ["id" : "i", "name": "Info", "card_type": "info", "page_type": "person"],
-        ["id" : "t", "name": "Team Members", "card_type": "team", "page_type": "person"],
-        ["id" : "d", "name": "To Dos", "card_type": "to_do", "page_type": "person"],
+        ["id" : "t", "name": "Team", "card_type": "team", "page_type": "person"],
+        ["id" : "d", "name": "Follow Up Items", "card_type": "to_do", "page_type": "person"],
         ["id" : "m", "name": "Meetings", "card_type": "meetings", "page_type": "person"],
         ["id" : "n", "name": "Notes", "card_type": "notes", "page_type": "person"]
     ]);
