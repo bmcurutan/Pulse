@@ -84,15 +84,15 @@ extension UIColor {
     // MARK: - Alert Colors
     
     class func pulseSuccessBackgroundColor() -> UIColor {
-        return UIExtensions.uiColorWith(hex: "#3F51B5")
+        return UIExtensions.uiColorWith(hex: "#3F51B5") // TODO Bianca
     }
     
     class func pulseFailureBackgroundColor() -> UIColor {
-        return UIExtensions.uiColorWith(hex: "#C5CAE9")
+        return UIExtensions.uiColorWith(hex: "#C5CAE9") // TODO Bianca
     }
     
     class func pulseAlertBackgroundColor() -> UIColor {
-        return UIExtensions.uiColorWith(hex: "#536DFE")
+        return UIExtensions.uiColorWith(hex: "#536DFE") // TODO Bianca
     }
     
     class func pulseSuccessTextColor() -> UIColor {

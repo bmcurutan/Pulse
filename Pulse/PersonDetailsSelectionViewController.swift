@@ -27,10 +27,9 @@ class PersonDetailsSelectionViewController: UIViewController {
 
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.layer.cornerRadius = 5
         
         alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
-        
-        title = "Manage Cards"
     }
     
     

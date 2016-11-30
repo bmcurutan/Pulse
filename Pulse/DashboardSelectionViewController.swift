@@ -27,7 +27,7 @@ class DashboardSelectionViewController: UIViewController {
 
         tableView.dataSource = self
         tableView.delegate = self
-        title = "Manage Cards"
+        tableView.layer.cornerRadius = 5
     }
     
     // MARK: - IBAction
