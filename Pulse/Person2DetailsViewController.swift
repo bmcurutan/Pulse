@@ -16,7 +16,7 @@ class Person2DetailsViewController: UIViewController {
     var alertController: UIAlertController?
     
     var selectedCardsString: String = ""
-    var selectedCards: [Card] = [Constants.personCards[0]] // Always include info card
+    var selectedCards: [Card] = [Constants.personCards[0], Constants.personCards[1]] // Always include info card
     
     var personPFObject: PFObject?
 	var personInfoViewController: PersonDetailsViewController!
@@ -160,7 +160,7 @@ extension Person2DetailsViewController: UITableViewDataSource {
         if indexPath.section == selectedCards.count {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTextCell", for: indexPath) as! CustomTextCell
             cell.layer.cornerRadius = 5
-            cell.message = "Tap here to manage cards"
+            cell.message = "Tap here to manage modules"
             return cell
             
         } else { // The actual cards
@@ -184,6 +184,7 @@ extension Person2DetailsViewController: UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TeamContainerCell", for: indexPath)
                 cell.selectionStyle = .none
                 cell.layer.cornerRadius = 5
+                cell.backgroundColor = UIColor.clear
                 
                 if cell.contentView.subviews == [] {
                     let storyboard = UIStoryboard(name: "Team", bundle: nil)

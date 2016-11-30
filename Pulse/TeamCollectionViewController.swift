@@ -82,7 +82,7 @@ extension TeamCollectionViewController: UICollectionViewDelegate, UICollectionVi
     // MARK: - UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 155.0, height: 210.0)
+        return CGSize(width: 145.0, height: 210.0)
         //return CGSize(width: 155.0, height: 300) //height: 210.0)
     }
     

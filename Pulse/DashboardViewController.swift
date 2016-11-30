@@ -126,7 +126,7 @@ extension DashboardViewController: UITableViewDataSource {
         if indexPath.section == selectedCards.count {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTextCell", for: indexPath) as! CustomTextCell
             cell.layer.cornerRadius = 5
-            cell.message = "Tap here to manage cards"
+            cell.message = "Tap here to manage modules"
             return cell
         
         // The actual cards - TODO pull this out to separate functions

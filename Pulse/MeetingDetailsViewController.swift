@@ -105,9 +105,9 @@ extension MeetingDetailsViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTextCell", for: indexPath) as! CustomTextCell
             cell.layer.cornerRadius = 5
             if isExistingMeeting {
-                cell.message = "Tap here to manage cards"
+                cell.message = "Tap here to manage modules"
             } else {
-                cell.message = "Save meeting to manage cards"
+                cell.message = "Save meeting to manage modules"
             }
             return cell
             
