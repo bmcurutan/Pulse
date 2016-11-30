@@ -23,7 +23,9 @@ class PhotoImageView: UIView {
 	let imagePicker = UIImagePickerController()
 	var photoData: Data? {
 		didSet {
-			self.imageView.image = UIImage(data: photoData!)
+            if let photoData = photoData {
+                self.imageView.image = UIImage(data: photoData)
+            }
 		}
 	}
 

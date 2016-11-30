@@ -31,7 +31,6 @@ class SignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Sign Up"
         
         UIExtensions.gradientBackgroundFor(view: scrollView)
         navigationController?.navigationBar.barStyle = .blackTranslucent
