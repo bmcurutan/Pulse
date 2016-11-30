@@ -32,7 +32,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bsv-qF-A4D">
-                                <rect key="frame" x="10" y="61" width="47" height="30"/>
+                                <rect key="frame" x="8" y="61" width="47" height="30"/>
                                 <state key="normal" title="See All">
                                     <color key="titleColor" red="0.32549019610000002" green="0.42745098040000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -46,10 +46,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ndN-v1-9TM">
-                                <rect key="frame" x="8" y="99" width="359" height="560"/>
+                                <rect key="frame" x="8" y="95" width="359" height="564"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCardCell" id="EM7-Bg-eap" customClass="CustomCardCell" customModule="Pulse" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomTextCell" id="EM7-Bg-eap" customClass="CustomTextCell" customModule="Pulse" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="359" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EM7-Bg-eap" id="qe1-1M-aTV">
@@ -62,15 +62,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ndN-v1-9TM" firstAttribute="top" secondItem="Bsv-qF-A4D" secondAttribute="bottom" constant="8" id="5Lq-Nf-sTw"/>
                             <constraint firstItem="ndN-v1-9TM" firstAttribute="leading" secondItem="6OV-X0-hbB" secondAttribute="leading" constant="8" id="8Vp-xC-jlb"/>
                             <constraint firstItem="lb5-MA-c6m" firstAttribute="top" secondItem="RXM-OU-A5o" secondAttribute="bottom" constant="8" id="FJn-Dd-vsY"/>
-                            <constraint firstItem="Bsv-qF-A4D" firstAttribute="leading" secondItem="6OV-X0-hbB" secondAttribute="leading" constant="10" id="MKJ-Rj-0RP"/>
+                            <constraint firstItem="Bsv-qF-A4D" firstAttribute="leading" secondItem="6OV-X0-hbB" secondAttribute="leading" constant="8" id="MKJ-Rj-0RP"/>
                             <constraint firstItem="FIf-2c-DMt" firstAttribute="top" secondItem="ndN-v1-9TM" secondAttribute="bottom" constant="8" id="NeO-ie-AAp"/>
                             <constraint firstAttribute="trailing" secondItem="lb5-MA-c6m" secondAttribute="trailing" constant="24" id="Rwe-yu-Hnm"/>
                             <constraint firstItem="RXM-OU-A5o" firstAttribute="top" secondItem="jhk-YY-nrE" secondAttribute="bottom" constant="8" id="VIU-I9-IxM"/>
                             <constraint firstItem="Bsv-qF-A4D" firstAttribute="centerY" secondItem="lb5-MA-c6m" secondAttribute="centerY" id="g7s-dr-zUR"/>
                             <constraint firstAttribute="trailing" secondItem="ndN-v1-9TM" secondAttribute="trailing" constant="8" id="p3t-9S-9fJ"/>
+                            <constraint firstItem="ndN-v1-9TM" firstAttribute="top" secondItem="jhk-YY-nrE" secondAttribute="bottom" constant="75" id="qe4-4c-hYI"/>
                             <constraint firstItem="RXM-OU-A5o" firstAttribute="leading" secondItem="6OV-X0-hbB" secondAttribute="leading" constant="8" id="z2o-MX-AHs"/>
                         </constraints>
                     </view>
@@ -80,6 +80,7 @@
                         <outlet property="selectAllButton" destination="Bsv-qF-A4D" id="e3o-aH-M0g"/>
                         <outlet property="tableView" destination="ndN-v1-9TM" id="TFN-bt-SOI"/>
                         <outlet property="tableViewLeadingConstraint" destination="8Vp-xC-jlb" id="ARA-jC-gOI"/>
+                        <outlet property="tableViewTopConstraint" destination="qe4-4c-hYI" id="j8d-kM-6mt"/>
                         <outlet property="tableViewTrailingConstraint" destination="p3t-9S-9fJ" id="hQ8-64-Ch2"/>
                     </connections>
                 </viewController>
@@ -103,7 +104,7 @@
                                 <rect key="frame" x="8" y="8" width="359" height="651"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCardCell" id="A7y-Cu-fdb" customClass="CustomCardCell" customModule="Pulse" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomTextCell" id="A7y-Cu-fdb" customClass="CustomTextCell" customModule="Pulse" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="359" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A7y-Cu-fdb" id="ASq-hW-1Cb">

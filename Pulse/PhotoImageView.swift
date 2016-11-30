@@ -70,9 +70,7 @@ class PhotoImageView: UIView {
 		addSubview(contentView)
 
 		imagePicker.delegate = self
-		imageView.layer.cornerRadius = 3
-		imageView.layer.borderColor = UIColor.gray.cgColor
-		imageView.layer.borderWidth = 0.5
+		imageView.layer.cornerRadius = 5
 		imageView.clipsToBounds = true
 	}
 

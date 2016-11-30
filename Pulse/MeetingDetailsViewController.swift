@@ -34,7 +34,6 @@ class MeetingDetailsViewController: UIViewController {
         UIExtensions.gradientBackgroundFor(view: view)
         navigationController?.navigationBar.barStyle = .blackTranslucent
       
-        title = "Meeting"  
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(onSaveButton(_:)))
 
         tableView.dataSource = self
@@ -42,7 +41,7 @@ class MeetingDetailsViewController: UIViewController {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        tableView.register(UINib(nibName: "CustomCardCell", bundle: nil), forCellReuseIdentifier: "CustomCardCell")
+        tableView.register(UINib(nibName: "CustomTextCell", bundle: nil), forCellReuseIdentifier: "CustomTextCell")
         
         alertController = UIAlertController(title: "", message: "Error", preferredStyle: .alert)
         alertController?.addAction(UIAlertAction(title: "OK", style: .cancel))
@@ -103,7 +102,7 @@ extension MeetingDetailsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == selectedCards.count {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCardCell", for: indexPath) as! CustomCardCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTextCell", for: indexPath) as! CustomTextCell
             cell.layer.cornerRadius = 5
             if isExistingMeeting {
                 cell.message = "Tap here to manage cards"
@@ -176,7 +175,7 @@ extension MeetingDetailsViewController: UITableViewDataSource {
                 return cell
                 
             default: // This shouldn't actually be reached
-                let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCardCell", for: indexPath) as! CustomCardCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTextCell", for: indexPath) as! CustomTextCell
                 cell.message = selectedCards[indexPath.section].name
                 return cell
             }

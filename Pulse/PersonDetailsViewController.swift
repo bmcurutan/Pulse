@@ -63,7 +63,7 @@ class PersonDetailsViewController: UIViewController {
 	}
 
 	func initViews() {
-		callButton.layer.cornerRadius = 3
+		callButton.layer.cornerRadius = 5
 	}
 
 	func heightForView() -> CGFloat {

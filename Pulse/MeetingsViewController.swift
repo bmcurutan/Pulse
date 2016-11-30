@@ -16,6 +16,7 @@ class MeetingsViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var meetingsLabel: UILabel!
     
+    @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableViewTrailingConstraint: NSLayoutConstraint!
     
@@ -39,6 +40,8 @@ class MeetingsViewController: UIViewController {
         selectAllButton.isHidden = expanded
         addButton.isHidden = expanded
         meetingsLabel.isHidden = expanded
+        
+        tableViewTopConstraint.constant = expanded ? 8 : 75
         tableViewTrailingConstraint.constant = expanded ? 8 : 0
         tableViewTrailingConstraint.constant = expanded ? 8 : 16
         
@@ -46,7 +49,7 @@ class MeetingsViewController: UIViewController {
         tableView.delegate = self
         tableView.layer.cornerRadius = 5
         
-        tableView.register(UINib(nibName: "CustomCardCell", bundle: nil), forCellReuseIdentifier: "CustomCardCell")
+        tableView.register(UINib(nibName: "CustomTextCell", bundle: nil), forCellReuseIdentifier: "CustomTextCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -124,8 +127,8 @@ class MeetingsViewController: UIViewController {
     }
     
     func heightForView() -> CGFloat {
-        // Calculated with bottom-most element (y position + displayed rows height - half displayed row)
-        return 72 + (44 * 3) - 22 // TODO heightForView
+        // Calculated with bottom-most element (y position + displayed rows height - status bar height)
+        return 95 + (56 * 3) - 20
     }
     
     // MARK: - IBAction
@@ -148,7 +151,7 @@ class MeetingsViewController: UIViewController {
 
 extension MeetingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCardCell", for: indexPath) as! CustomCardCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTextCell", for: indexPath) as! CustomTextCell
         if 0 < meetings.count {
             
             let formatter = DateFormatter()
@@ -162,7 +165,8 @@ extension MeetingsViewController: UITableViewDataSource {
                 if let persons = persons {
                     let person = persons[0]
                     if let firstName = person[ObjectKeys.Person.firstName] as? String, let lastName = person[ObjectKeys.Person.lastName] as? String {
-                        cell.messageLabel.text = "\(firstName) \(lastName) (\(meetingDate))"
+                        cell.message = "\(firstName) \(lastName)"
+                        cell.submessage = "\(meetingDate)"
                     }
                 }
             }
@@ -210,6 +214,10 @@ extension MeetingsViewController: UITableViewDataSource {
                 }
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 56
     }
 }
 

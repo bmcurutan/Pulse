@@ -36,7 +36,7 @@ class Person2DetailsViewController: UIViewController {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        tableView.register(UINib(nibName: "CustomCardCell", bundle: nil), forCellReuseIdentifier: "CustomCardCell")
+        tableView.register(UINib(nibName: "CustomTextCell", bundle: nil), forCellReuseIdentifier: "CustomTextCell")
         
 		initPersonInfo()
 
@@ -158,7 +158,7 @@ extension Person2DetailsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == selectedCards.count {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCardCell", for: indexPath) as! CustomCardCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTextCell", for: indexPath) as! CustomTextCell
             cell.layer.cornerRadius = 5
             cell.message = "Tap here to manage cards"
             return cell
@@ -260,7 +260,7 @@ extension Person2DetailsViewController: UITableViewDataSource {
                 return cell
                 
             default: // This shouldn't actually be reached
-                let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCardCell", for: indexPath) as! CustomCardCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTextCell", for: indexPath) as! CustomTextCell
                 cell.layer.cornerRadius = 5
                 cell.message = selectedCards[indexPath.section].name
                 return cell

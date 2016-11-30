@@ -11,10 +11,10 @@ import Foundation
 class Constants: NSObject {
 
     static let dashboardCards: [Card] = Card.cardsWithArray(dictionaries: [
-        ["id" : "m", "name": "Recent Meetings", "card_type": "meetings", "page_type": "dashboard"],
         ["id" : "g", "name": "Company Pulse", "card_type": "pulse_graph", "page_type": "dashboard"],
+        ["id" : "d", "name": "Follow Up Items", "card_type": "to_do", "page_type": "dashboard"],
         ["id" : "t", "name": "My Team", "card_type": "team", "page_type": "dashboard"],
-        ["id" : "d", "name": "Follow Up Items", "card_type": "to_do", "page_type": "dashboard"]
+        ["id" : "m", "name": "Recent Meetings", "card_type": "meetings", "page_type": "dashboard"]
     ])
     
     static let meetingCards: [Card] = Card.cardsWithArray(dictionaries: [

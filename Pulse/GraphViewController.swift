@@ -90,7 +90,7 @@ class GraphViewController: UIViewController {
 
     func heightForView() -> CGFloat {
         // Calculated with bottom-most element (y position + height + 8)
-        return 261 + 80 + 8
+        return 282 + 80 + 8
     }
 
 }
