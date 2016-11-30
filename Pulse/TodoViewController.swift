@@ -381,9 +381,9 @@ extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
         case .showCompleted:
             let cell = tableView.dequeueReusableCell(withIdentifier: CellReuseIdentifier.Todo.todoShowCompletedCell, for: indexPath) as! TodoShowCompletedCell
             if shouldShowCompleted {
-                cell.labelString = "HIDE COMPLETED TO-DOS"
+                cell.labelString = "Hide Completed Items"
             } else {
-                cell.labelString = "SHOW COMPLETED TO-DOS"
+                cell.labelString = "Show Completed Items"
             }
             return cell
         case .listCompleted:
