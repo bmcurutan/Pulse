@@ -53,7 +53,6 @@ class SignUpViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(onCancelButtonTap(_:)))
-        navigationItem.leftBarButtonItem?.tintColor = UIColor.pulseAccentColor()
     }
     
     // MARK: - Actions

@@ -11,7 +11,7 @@ import UIKit
 class UIExtensions: NSObject {
     /* UI Notes:
      * Corner radius: 5.0
-     * Header font: Helvetica Neue thin 36pt
+     * Header font: Helvetica Neue thin 24pt
      * Subheader font: Helvetica Neue thin
      */
     
@@ -76,7 +76,7 @@ extension UIColor {
         return UIExtensions.uiColorWith(hex: "#C5CAE9") // Light indigo
     }
 
-    // Used for text links and clear background icons
+    // Used for graph line, text links, and clear background icons
     class func pulseAccentColor() -> UIColor {
         return UIExtensions.uiColorWith(hex: "#536DFE") // Bright indigo
     }
