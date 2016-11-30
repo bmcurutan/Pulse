@@ -12,7 +12,7 @@ class UIExtensions: NSObject {
     /* UI Notes:
      * Corner radius: 5.0
      * Header font: Helvetica Neue thin 24pt
-     * Subheader font: Helvetica Neue thin
+     * Subheader font: Helvetica Neue thin 17pt
      */
     
     /* TODO - other things to address:

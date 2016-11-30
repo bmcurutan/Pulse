@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pulse" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FqA-WY-3fd">
-                                <rect key="frame" x="277" y="608" width="82" height="43"/>
+                                <rect key="frame" x="269" y="600" width="82" height="43"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="36"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -30,8 +30,8 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="FqA-WY-3fd" secondAttribute="bottom" constant="16" id="fnY-0H-YAY"/>
-                            <constraint firstAttribute="trailing" secondItem="FqA-WY-3fd" secondAttribute="trailing" constant="16" id="qs1-Hy-IHc"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="FqA-WY-3fd" secondAttribute="bottom" constant="24" id="fnY-0H-YAY"/>
+                            <constraint firstAttribute="trailing" secondItem="FqA-WY-3fd" secondAttribute="trailing" constant="24" id="qs1-Hy-IHc"/>
                         </constraints>
                     </view>
                 </viewController>
