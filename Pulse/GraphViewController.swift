@@ -12,6 +12,8 @@ import UIKit
 
 class GraphViewController: UIViewController {
 
+    @IBOutlet weak var chartTitleLabel: UILabel!
+    
     @IBOutlet weak var chart1: Chart!
     @IBOutlet weak var chart2: Chart!
     @IBOutlet weak var chart3: Chart!
@@ -22,9 +24,26 @@ class GraphViewController: UIViewController {
     var personIdValues: [String] = []
     var highLowValues = ["Poor", "Good", "Great"]
     
+    var parseClient = ParseClient.sharedInstance()
+    var teamMemberIds = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        loadChartForCompany(false)
+    }
+    
+    // isCompany == true, load chart for whole company
+    // isCompany == false, load chart for my team only
+    func loadChartForCompany(_ isCompany: Bool) {
+        
+        // Reset values
+        survey1Values = []
+        survey2Values = []
+        survey3Values = []
+        
+        chartTitleLabel.text = isCompany ? "Company Pulse" : "Team Pulse"
+        
         let query = PFQuery(className: "Survey")
         query.whereKey("companyId", equalTo: "Pulse")
         
@@ -32,23 +51,67 @@ class GraphViewController: UIViewController {
         var pastDate = Date() // this is current date
         pastDate.addTimeInterval(-30*24*60*60)
         query.whereKey("meetingDate", greaterThan: pastDate)
-        
-        query.order(byDescending: "meetingDate") // TODO
-        
+        query.order(byDescending: "meetingDate")
         
         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
             if let posts = posts {
-                for post in posts {
-                    if let personId = post["personId"] as? String {
-                        if !self.personIdValues.contains(personId) {
-                            self.survey1Values.append(post["surveyValueId1"] as! Float)
-                            self.survey2Values.append(post["surveyValueId2"] as! Float)
-                            self.survey3Values.append(post["surveyValueId3"] as! Float)
-                            self.personIdValues.append(personId)
+                self.fetchMyTeamMembers() { (success: Bool, error: Error?) in
+                    if nil != error {
+                        print("Error fetched team members")
+                    } else {
+                        print("Successfully fetched team members")
+                        for post in posts {
+                            if let personId = post["personId"] as? String {
+                                if isCompany {
+                                    if !self.personIdValues.contains(personId) {
+                                        self.survey1Values.append(post["surveyValueId1"] as! Float)
+                                        self.survey2Values.append(post["surveyValueId2"] as! Float)
+                                        self.survey3Values.append(post["surveyValueId3"] as! Float)
+                                        self.personIdValues.append(personId)
+                                    }
+                                } else {
+                                    if !self.personIdValues.contains(personId) &&
+                                        self.teamMemberIds.contains(personId) {
+                                        self.survey1Values.append(post["surveyValueId1"] as! Float)
+                                        self.survey2Values.append(post["surveyValueId2"] as! Float)
+                                        self.survey3Values.append(post["surveyValueId3"] as! Float)
+                                        self.personIdValues.append(personId)
+                                    }
+                                }
+                            }
                         }
                     }
                 }
                 self.setupCharts()
+            }
+        }
+    }
+    
+    func fetchMyTeamMembers(completion: @escaping (_ success: Bool, _ error: Error?) -> ()) {
+        parseClient.getCurrentPerson { (person: PFObject?, error: Error?) in
+            if let error = error {
+                completion(false, error)
+            } else {
+                if let person = person {
+                    self.parseClient.fetchTeamMembersFor(managerId: person.objectId!, isAscending1: true, isAscending2: nil, orderBy1: ObjectKeys.Person.lastName, orderBy2: nil, isDeleted: false) { (members: [PFObject]?, error: Error?) in
+                        if let error = error {
+                            completion(false, error)
+                        } else {
+                            if let members = members, members.count > 0 {
+                                for member in members {
+                                    if let personId = member.objectId,
+                                        !self.teamMemberIds.contains(personId) {
+                                        self.teamMemberIds.append(personId)
+                                    }
+                                }
+                                completion(true, nil)
+                            } else {
+                                debugPrint("Fetch members returned 0 members")
+                                completion(true, nil)
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -113,4 +176,11 @@ class GraphViewController: UIViewController {
         return 282 + 80 + 8
     }
 
+    @IBAction func onChartSwitch(_ sender: UISwitch) {
+        if sender.isOn { // Team pulse
+            loadChartForCompany(false)
+        } else { // Company pulse
+            loadChartForCompany(true)
+        }
+    }
 }
