@@ -167,26 +167,26 @@ extension MeetingDetailsViewController: UITableViewDataSource {
             cell.layer.cornerRadius = 5
             cell.selectionStyle = .none
             
-            if cell.contentView.subviews == [] {
-               let storyboard = UIStoryboard(name: "Meeting", bundle: nil)
-               let viewController = storyboard.instantiateViewController(withIdentifier: StoryboardID.meetingSurveyVC) as! MeetingSurveyViewController
-               viewController.meeting = meeting
-               viewController.isExistingMeeting = isExistingMeeting
-               
-               if self.viewTypes == .employeeDetail && self.teamMember != nil {
-                  viewController.viewTypes = self.viewTypes
-                  viewController.teamMember = self.teamMember!
-               }
-               
-               viewController.delegate = self
-               self.delegate = viewController
-               
-               viewController.willMove(toParentViewController: self)
-               viewController.view.frame = CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.heightForView())
-               cell.contentView.addSubview(viewController.view)
-               self.addChildViewController(viewController)
-               viewController.didMove(toParentViewController: self)
+            UIExtensions.removeContentViewSubviews(cell: cell)
+            let storyboard = UIStoryboard(name: "Meeting", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: StoryboardID.meetingSurveyVC) as! MeetingSurveyViewController
+            viewController.meeting = meeting
+            viewController.isExistingMeeting = isExistingMeeting
+            
+            if self.viewTypes == .employeeDetail && self.teamMember != nil {
+               viewController.viewTypes = self.viewTypes
+               viewController.teamMember = self.teamMember!
             }
+            
+            viewController.delegate = self
+            self.delegate = viewController
+            
+            viewController.willMove(toParentViewController: self)
+            viewController.view.frame = CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.heightForView())
+            cell.contentView.addSubview(viewController.view)
+            self.addChildViewController(viewController)
+            viewController.didMove(toParentViewController: self)
+            
             return cell
             
          case "d":
@@ -195,18 +195,17 @@ extension MeetingDetailsViewController: UITableViewDataSource {
             cell.layer.cornerRadius = 5
             cell.selectionStyle = .none
             
-            if cell.contentView.subviews == [] {
-               let storyboard = UIStoryboard(name: "Todo", bundle: nil)
-               let viewController = storyboard.instantiateViewController(withIdentifier: "TodoVC") as! TodoViewController
-               viewController.currentMeeting = meeting
-               viewController.viewTypes = .meeting
-               
-               viewController.willMove(toParentViewController: self)
-               viewController.view.frame = CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.heightForView())
-               cell.contentView.addSubview(viewController.view)
-               self.addChildViewController(viewController)
-               viewController.didMove(toParentViewController: self)
-            }
+            UIExtensions.removeContentViewSubviews(cell: cell)
+            let storyboard = UIStoryboard(name: "Todo", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "TodoVC") as! TodoViewController
+            viewController.currentMeeting = meeting
+            viewController.viewTypes = .meeting
+            
+            viewController.willMove(toParentViewController: self)
+            viewController.view.frame = CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.heightForView())
+            cell.contentView.addSubview(viewController.view)
+            self.addChildViewController(viewController)
+            viewController.didMove(toParentViewController: self)
             
             return cell
             
@@ -217,19 +216,18 @@ extension MeetingDetailsViewController: UITableViewDataSource {
             cell.selectionStyle = .none
             cell.backgroundColor = UIColor.clear
             
-            if cell.contentView.subviews == [] {
-               let storyboard = UIStoryboard(name: "Notes", bundle: nil)
-               let viewController = storyboard.instantiateViewController(withIdentifier: "NotesViewController") as! NotesViewController
-               viewController.delegate = self
-               self.delegate2 = viewController
-               viewController.notes = meeting.notes
-               
-               viewController.willMove(toParentViewController: self)
-               viewController.view.frame = CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.heightForView())
-               cell.contentView.addSubview(viewController.view)
-               self.addChildViewController(viewController)
-               viewController.didMove(toParentViewController: self)
-            }
+            UIExtensions.removeContentViewSubviews(cell: cell)
+            let storyboard = UIStoryboard(name: "Notes", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "NotesViewController") as! NotesViewController
+            viewController.delegate = self
+            self.delegate2 = viewController
+            viewController.notes = meeting.notes
+            
+            viewController.willMove(toParentViewController: self)
+            viewController.view.frame = CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.heightForView())
+            cell.contentView.addSubview(viewController.view)
+            self.addChildViewController(viewController)
+            viewController.didMove(toParentViewController: self)
             
             return cell
             

@@ -25,6 +25,14 @@ class UIExtensions: NSObject {
         view.layer.insertSublayer(gradient, at: 0)
     }
     
+    class func removeContentViewSubviews(cell: UITableViewCell) {
+        if cell.contentView.subviews.count > 0 {
+            for subview in cell.contentView.subviews {
+                subview.removeFromSuperview()
+            }
+        }
+    }
+    
     // This textfield setup only shows well for dark backgrounds
     class func setupViewFor(textField: UITextField) {
         let border = CALayer()
