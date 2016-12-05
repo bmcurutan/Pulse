@@ -233,7 +233,7 @@ extension DashboardViewController: UITableViewDataSource {
                 cell.layer.cornerRadius = 5
                 cell.backgroundColor = UIColor.clear
                 
-                if cell.contentView.subviews == [] {
+                //if cell.contentView.subviews == [] {
                     let storyboard = UIStoryboard(name: "Graph", bundle: nil)
                     let viewController = storyboard.instantiateViewController(withIdentifier: "GraphViewController") as! GraphViewController
                     viewController.willMove(toParentViewController: self)
@@ -241,7 +241,7 @@ extension DashboardViewController: UITableViewDataSource {
                     cell.contentView.addSubview(viewController.view)
                     self.addChildViewController(viewController)
                     viewController.didMove(toParentViewController: self)
-                }
+                //}
                 
                 return cell
                 
@@ -250,7 +250,7 @@ extension DashboardViewController: UITableViewDataSource {
                 cell.selectionStyle = .none
                 cell.layer.cornerRadius = 5
                 
-                if cell.contentView.subviews == [] {
+                //if cell.contentView.subviews == [] {
                     let storyboard = UIStoryboard(name: "Meeting", bundle: nil)
                     let viewController = storyboard.instantiateViewController(withIdentifier: "MeetingsViewController") as! MeetingsViewController
                     viewController.personId = nil
@@ -259,7 +259,7 @@ extension DashboardViewController: UITableViewDataSource {
                     cell.contentView.addSubview(viewController.view)
                     self.addChildViewController(viewController)
                     viewController.didMove(toParentViewController: self)
-                }
+                //}
                 
                 return cell
                 
@@ -269,7 +269,7 @@ extension DashboardViewController: UITableViewDataSource {
                 cell.layer.cornerRadius = 5
                 cell.backgroundColor = UIColor.clear
                 
-                if cell.contentView.subviews == [] {
+                //if cell.contentView.subviews == [] {
                     let storyboard = UIStoryboard(name: "Team", bundle: nil)
                     let viewController = storyboard.instantiateViewController(withIdentifier: "TeamCollectionVC") as! TeamCollectionViewController
                     viewController.willMove(toParentViewController: self)
@@ -277,7 +277,7 @@ extension DashboardViewController: UITableViewDataSource {
                     cell.contentView.addSubview(viewController.view)
                     self.addChildViewController(viewController)
                     viewController.didMove(toParentViewController: self)
-                }
+                //}
                     
                 return cell
                 
@@ -287,7 +287,7 @@ extension DashboardViewController: UITableViewDataSource {
                 cell.selectionStyle = .none
                 cell.layer.cornerRadius = 5
                 
-                if cell.contentView.subviews == [] {
+                //if cell.contentView.subviews == [] {
                     let storyboard = UIStoryboard(name: "Todo", bundle: nil)
                     let viewController = storyboard.instantiateViewController(withIdentifier: "TodoVC") as! TodoViewController
                     viewController.willMove(toParentViewController: self)
@@ -295,7 +295,7 @@ extension DashboardViewController: UITableViewDataSource {
                     cell.contentView.addSubview(viewController.view)
                     self.addChildViewController(viewController)
                     viewController.didMove(toParentViewController: self)
-                }
+                //}
                 
                 return cell
 
