@@ -257,12 +257,13 @@ extension Person2DetailsViewController: UITableViewDataSource {
                 cell.selectionStyle = .none
                 cell.layer.cornerRadius = 5
                 
-                UIExtensions.removeContentViewSubviews(cell: cell)
-                personInfoViewController.willMove(toParentViewController: self)
-                personInfoViewController.view.frame = CGRect(x: 0, y: 0, width: personInfoViewController.view.frame.size.width, height: personInfoViewController.heightForView())
-                cell.contentView.addSubview(personInfoViewController.view)
-                self.addChildViewController(personInfoViewController)
-                personInfoViewController.didMove(toParentViewController: self)
+                if cell.contentView.subviews == [] {
+                    personInfoViewController.willMove(toParentViewController: self)
+                    personInfoViewController.view.frame = CGRect(x: 0, y: 0, width: personInfoViewController.view.frame.size.width, height: personInfoViewController.heightForView())
+                    cell.contentView.addSubview(personInfoViewController.view)
+                    self.addChildViewController(personInfoViewController)
+                    personInfoViewController.didMove(toParentViewController: self)
+                }
                 
 				return cell
                 
@@ -272,15 +273,16 @@ extension Person2DetailsViewController: UITableViewDataSource {
                 cell.layer.cornerRadius = 5
                 cell.backgroundColor = UIColor.clear
                 
-                UIExtensions.removeContentViewSubviews(cell: cell)
-                let storyboard = UIStoryboard(name: "Team", bundle: nil)
-                let viewController = storyboard.instantiateViewController(withIdentifier: "TeamCollectionVC") as! TeamCollectionViewController
-                viewController.person = personPFObject
-                viewController.willMove(toParentViewController: self)
-                viewController.view.frame = CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.heightForView())
-                cell.contentView.addSubview(viewController.view)
-                self.addChildViewController(viewController)
-                viewController.didMove(toParentViewController: self)
+                if cell.contentView.subviews == [] {
+                    let storyboard = UIStoryboard(name: "Team", bundle: nil)
+                    let viewController = storyboard.instantiateViewController(withIdentifier: "TeamCollectionVC") as! TeamCollectionViewController
+                    viewController.person = personPFObject
+                    viewController.willMove(toParentViewController: self)
+                    viewController.view.frame = CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.heightForView())
+                    cell.contentView.addSubview(viewController.view)
+                    self.addChildViewController(viewController)
+                    viewController.didMove(toParentViewController: self)
+                }
                 
                 return cell
 
@@ -290,16 +292,17 @@ extension Person2DetailsViewController: UITableViewDataSource {
                 cell.selectionStyle = .none
                 cell.layer.cornerRadius = 5
                 
-                UIExtensions.removeContentViewSubviews(cell: cell)
-                let storyboard = UIStoryboard(name: "Todo", bundle: nil)
-                let viewController = storyboard.instantiateViewController(withIdentifier: "TodoVC") as! TodoViewController
-                viewController.currentTeamPerson = personPFObject
-                viewController.viewTypes = .employeeDetail
-                viewController.willMove(toParentViewController: self)
-                viewController.view.frame = CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.heightForView())
-                cell.contentView.addSubview(viewController.view)
-                self.addChildViewController(viewController)
-                viewController.didMove(toParentViewController: self)
+                if cell.contentView.subviews == [] {
+                    let storyboard = UIStoryboard(name: "Todo", bundle: nil)
+                    let viewController = storyboard.instantiateViewController(withIdentifier: "TodoVC") as! TodoViewController
+                    viewController.currentTeamPerson = personPFObject
+                    viewController.viewTypes = .employeeDetail
+                    viewController.willMove(toParentViewController: self)
+                    viewController.view.frame = CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.heightForView())
+                    cell.contentView.addSubview(viewController.view)
+                    self.addChildViewController(viewController)
+                    viewController.didMove(toParentViewController: self)
+                }
                 
                 return cell
                 
@@ -308,18 +311,19 @@ extension Person2DetailsViewController: UITableViewDataSource {
                 cell.selectionStyle = .none
                 cell.layer.cornerRadius = 5
                 
-                UIExtensions.removeContentViewSubviews(cell: cell)
-                let storyboard = UIStoryboard(name: "Meeting", bundle: nil)
-                let viewController = storyboard.instantiateViewController(withIdentifier: "MeetingsViewController") as! MeetingsViewController
-                if let personPFObject = personPFObject {
-                    viewController.personId = personPFObject.objectId
+                if cell.contentView.subviews == [] {
+                    let storyboard = UIStoryboard(name: "Meeting", bundle: nil)
+                    let viewController = storyboard.instantiateViewController(withIdentifier: "MeetingsViewController") as! MeetingsViewController
+                    if let personPFObject = personPFObject {
+                        viewController.personId = personPFObject.objectId
+                    }
+                    viewController.viewTypes = .employeeDetail
+                    viewController.willMove(toParentViewController: self)
+                    viewController.view.frame = CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.heightForView())
+                    cell.contentView.addSubview(viewController.view)
+                    self.addChildViewController(viewController)
+                    viewController.didMove(toParentViewController: self)
                 }
-                viewController.viewTypes = .employeeDetail
-                viewController.willMove(toParentViewController: self)
-                viewController.view.frame = CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.heightForView())
-                cell.contentView.addSubview(viewController.view)
-                self.addChildViewController(viewController)
-                viewController.didMove(toParentViewController: self)
                 
                 return cell
                 
@@ -330,19 +334,20 @@ extension Person2DetailsViewController: UITableViewDataSource {
                 cell.layer.cornerRadius = 5
                 cell.backgroundColor = UIColor.clear
                 
-                UIExtensions.removeContentViewSubviews(cell: cell)
-                let storyboard = UIStoryboard(name: "Notes", bundle: nil)
-                let viewController = storyboard.instantiateViewController(withIdentifier: "NotesViewController") as! NotesViewController
-                viewController.delegate = self
-                if let personPFObject = personPFObject,
-                    let notes = personPFObject["notes"] as? String {
-                    viewController.notes = notes
+                if cell.contentView.subviews == [] {
+                    let storyboard = UIStoryboard(name: "Notes", bundle: nil)
+                    let viewController = storyboard.instantiateViewController(withIdentifier: "NotesViewController") as! NotesViewController
+                    viewController.delegate = self
+                    if let personPFObject = personPFObject,
+                        let notes = personPFObject["notes"] as? String {
+                        viewController.notes = notes
+                    }
+                    viewController.willMove(toParentViewController: self)
+                    viewController.view.frame = CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.heightForView())
+                    cell.contentView.addSubview(viewController.view)
+                    self.addChildViewController(viewController)
+                    viewController.didMove(toParentViewController: self)
                 }
-                viewController.willMove(toParentViewController: self)
-                viewController.view.frame = CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.heightForView())
-                cell.contentView.addSubview(viewController.view)
-                self.addChildViewController(viewController)
-                viewController.didMove(toParentViewController: self)
                 
                 return cell
                 
