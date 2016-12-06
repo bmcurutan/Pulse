@@ -233,18 +233,15 @@ extension DashboardViewController: UITableViewDataSource {
                 cell.layer.cornerRadius = 5
                 cell.backgroundColor = UIColor.clear
                 
-                if cell.contentView.subviews != [] {
-                    for subview in cell.contentView.subviews {
-                        subview.removeFromSuperview()
-                    }
-                }
-                let storyboard = UIStoryboard(name: "Graph", bundle: nil)
-                let viewController = storyboard.instantiateViewController(withIdentifier: "GraphViewController") as! GraphViewController
-                viewController.willMove(toParentViewController: self)
-                viewController.view.frame.size.height = viewController.heightForView() //CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.heightForView())
-                cell.contentView.addSubview(viewController.view)
-                self.addChildViewController(viewController)
-                viewController.didMove(toParentViewController: self)
+                //if cell.contentView.subviews == [] {
+                    let storyboard = UIStoryboard(name: "Graph", bundle: nil)
+                    let viewController = storyboard.instantiateViewController(withIdentifier: "GraphViewController") as! GraphViewController
+                    viewController.willMove(toParentViewController: self)
+                    viewController.view.frame = CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.heightForView())
+                    cell.contentView.addSubview(viewController.view)
+                    self.addChildViewController(viewController)
+                    viewController.didMove(toParentViewController: self)
+                //}
                 
                 return cell
                 
@@ -253,19 +250,16 @@ extension DashboardViewController: UITableViewDataSource {
                 cell.selectionStyle = .none
                 cell.layer.cornerRadius = 5
                 
-                if cell.contentView.subviews != [] {
-                    for subview in cell.contentView.subviews {
-                        subview.removeFromSuperview()
-                    }
-                }
-                let storyboard = UIStoryboard(name: "Meeting", bundle: nil)
-                let viewController = storyboard.instantiateViewController(withIdentifier: "MeetingsViewController") as! MeetingsViewController
-                viewController.personId = nil
-                viewController.willMove(toParentViewController: self)
-                viewController.view.frame.size.height = viewController.heightForView() //viewController.view.frame = CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.heightForView())
-                cell.contentView.addSubview(viewController.view)
-                self.addChildViewController(viewController)
-                viewController.didMove(toParentViewController: self)
+                //if cell.contentView.subviews == [] {
+                    let storyboard = UIStoryboard(name: "Meeting", bundle: nil)
+                    let viewController = storyboard.instantiateViewController(withIdentifier: "MeetingsViewController") as! MeetingsViewController
+                    viewController.personId = nil
+                    viewController.willMove(toParentViewController: self)
+                    viewController.view.frame = CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.heightForView())
+                    cell.contentView.addSubview(viewController.view)
+                    self.addChildViewController(viewController)
+                    viewController.didMove(toParentViewController: self)
+                //}
                 
                 return cell
                 
@@ -275,18 +269,15 @@ extension DashboardViewController: UITableViewDataSource {
                 cell.layer.cornerRadius = 5
                 cell.backgroundColor = UIColor.clear
                 
-                if cell.contentView.subviews != [] {
-                    for subview in cell.contentView.subviews {
-                        subview.removeFromSuperview()
-                    }
-                }
-                let storyboard = UIStoryboard(name: "Team", bundle: nil)
-                let viewController = storyboard.instantiateViewController(withIdentifier: "TeamCollectionVC") as! TeamCollectionViewController
-                viewController.willMove(toParentViewController: self)
-                viewController.view.frame.size.height = viewController.heightForView() //viewController.view.frame = CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.heightForView())
-                cell.contentView.addSubview(viewController.view)
-                self.addChildViewController(viewController)
-                viewController.didMove(toParentViewController: self)
+                //if cell.contentView.subviews == [] {
+                    let storyboard = UIStoryboard(name: "Team", bundle: nil)
+                    let viewController = storyboard.instantiateViewController(withIdentifier: "TeamCollectionVC") as! TeamCollectionViewController
+                    viewController.willMove(toParentViewController: self)
+                    viewController.view.frame = CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.heightForView())
+                    cell.contentView.addSubview(viewController.view)
+                    self.addChildViewController(viewController)
+                    viewController.didMove(toParentViewController: self)
+                //}
                     
                 return cell
                 
@@ -296,18 +287,15 @@ extension DashboardViewController: UITableViewDataSource {
                 cell.selectionStyle = .none
                 cell.layer.cornerRadius = 5
                 
-                if cell.contentView.subviews != [] {
-                    for subview in cell.contentView.subviews {
-                        subview.removeFromSuperview()
-                    }
-                }
-                let storyboard = UIStoryboard(name: "Todo", bundle: nil)
-                let viewController = storyboard.instantiateViewController(withIdentifier: "TodoVC") as! TodoViewController
-                viewController.willMove(toParentViewController: self)
-                viewController.view.frame.size.height = viewController.heightForView() //viewController.view.frame = CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.heightForView())
-                cell.contentView.addSubview(viewController.view)
-                self.addChildViewController(viewController)
-                viewController.didMove(toParentViewController: self)
+                //if cell.contentView.subviews == [] {
+                    let storyboard = UIStoryboard(name: "Todo", bundle: nil)
+                    let viewController = storyboard.instantiateViewController(withIdentifier: "TodoVC") as! TodoViewController
+                    viewController.willMove(toParentViewController: self)
+                    viewController.view.frame = CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.heightForView())
+                    cell.contentView.addSubview(viewController.view)
+                    self.addChildViewController(viewController)
+                    viewController.didMove(toParentViewController: self)
+                //}
                 
                 return cell
 

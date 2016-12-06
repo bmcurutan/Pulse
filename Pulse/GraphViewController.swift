@@ -113,8 +113,11 @@ class GraphViewController: UIViewController {
                                                 self.teamMemberIds.append(personId)
                                             }
                                         }
+                                        //debugPrint("in graph, teamMemberIds: \(self.teamMemberIds)")
+                                        
                                         for post in posts {
                                             if let personId = post["personId"] as? String {
+                                                //debugPrint("in graph, personId: \(personId)")
                                                 if !self.personIdValues.contains(personId) &&
                                                     self.teamMemberIds.contains(personId) {
                                                     self.survey1Values.append(post["surveyValueId1"] as! Float)
@@ -210,7 +213,7 @@ class GraphViewController: UIViewController {
             })
         }
         barChartLabel1 = UILabel(frame: CGRect(x: 8, y: chart1.frame.origin.y + chart1.frame.size.height - 20, width: chart1.frame.size.width, height: 20))
-        barChartLabel1?.text = vals1.count > 0 ? "Pulse for \(vals1.count) employees" : "Current Pulse data not available"
+        barChartLabel1?.text = vals1.count > 0 ? "Pulse for \(vals1.count) employees" : "No Pulse data available"
         barChartLabel1?.textColor = UIColor.pulseLightPrimaryColor()
         barChartLabel1?.textAlignment = .center
         barChartLabel1?.font = barChartLabel1?.font.withSize(12)
@@ -225,7 +228,7 @@ class GraphViewController: UIViewController {
             })
         }
         barChartLabel2 = UILabel(frame: CGRect(x: 8, y: chart2.frame.origin.y + chart2.frame.size.height - 20, width: chart2.frame.size.width, height: 20))
-        barChartLabel2?.text = vals2.count > 0 ? "Pulse for \(vals2.count) employees" : "Current Pulse data not available"
+        barChartLabel2?.text = vals2.count > 0 ? "Pulse for \(vals2.count) employees" : "No Pulse data available"
         barChartLabel2?.textColor = UIColor.pulseLightPrimaryColor()
         barChartLabel2?.textAlignment = .center
         barChartLabel2?.font = barChartLabel2?.font.withSize(12)
@@ -240,7 +243,7 @@ class GraphViewController: UIViewController {
             })
         }
         barChartLabel3 = UILabel(frame: CGRect(x: 8, y: chart3.frame.origin.y + chart3.frame.size.height - 20, width: chart3.frame.size.width, height: 20))
-        barChartLabel3?.text = vals3.count > 0 ? "Pulse for \(vals3.count) employees" : "Current Pulse data not available"
+        barChartLabel3?.text = vals3.count > 0 ? "Pulse for \(vals3.count) employees" : "No Pulse data available"
         barChartLabel3?.textColor = UIColor.pulseLightPrimaryColor()
         barChartLabel3?.textAlignment = .center
         barChartLabel3?.font = barChartLabel3?.font.withSize(12)
